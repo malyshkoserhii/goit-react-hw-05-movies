@@ -1,0 +1,5 @@
+.movieList {
+  width: 740px;
+  display: flex;
+  flex-direction: column;
+}

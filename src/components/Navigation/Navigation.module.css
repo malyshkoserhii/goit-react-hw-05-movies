@@ -1,0 +1,16 @@
+.nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+.navLink {
+  text-align: center;
+  text-decoration: none;
+  width: 100px;
+}
+
+.activeLink {
+  composes: navLink;
+  color: rgb(255, 255, 255);
+  background-color: royalblue;
+}
