@@ -9,22 +9,30 @@ const MovieDetailsView = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const [cast, setCast] = useState(null);
+  const [review, setReview] = useState(null);
 
   useEffect(() => {
     moviesApi
-      .fetchMoviesById(movieId)
+      .fetchMovieById(movieId)
       .then(data => data)
       .then(setMovie);
   }, [movieId]);
 
   useState(() => {
     moviesApi
-      .fetchMoviesCast(movieId)
+      .fetchMovieCast(movieId)
       .then(data => data)
       .then(setCast);
   }, [movieId]);
 
-  return movie && <MovieCard movie={movie} cast={cast} />;
+  useState(() => {
+    moviesApi
+      .fetchMovieReview(movieId)
+      .then(data => data)
+      .then(setReview);
+  }, [movieId]);
+
+  return movie && <MovieCard movie={movie} cast={cast} review={review} />;
 };
 
 export default MovieDetailsView;

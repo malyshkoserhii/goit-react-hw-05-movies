@@ -1,13 +1,10 @@
-import { Link, Route, useRouteMatch, useParams } from 'react-router-dom';
+import { Link, Route, useRouteMatch } from 'react-router-dom';
 import Cast from '../Cast/Cast';
-
+import Review from '../Review/Review';
 // import s from './MovieCard.module.css';
 
-const MovieCard = ({ movie, cast }) => {
+const MovieCard = ({ movie, cast, review }) => {
   const { url } = useRouteMatch();
-  const params = useParams();
-  //   console.log(params);
-  //   console.log(url);
 
   return (
     <section>
@@ -35,6 +32,11 @@ const MovieCard = ({ movie, cast }) => {
       <hr />
       <Route path={`${url}/cast`}>
         <Cast cast={cast} />
+      </Route>
+      <Link to={`${url}/reviews`}>Reviews</Link>
+      <hr />
+      <Route path={`${url}/reviews`}>
+        <Review review={review} />
       </Route>
     </section>
   );

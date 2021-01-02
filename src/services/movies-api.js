@@ -19,7 +19,7 @@ export async function fetchMoviesWithQuery(query) {
     : Promise.reject(new Error('Not found from Promise Reject'));
 }
 
-export async function fetchMoviesById(movieId) {
+export async function fetchMovieById(movieId) {
   const response = await fetch(`${BASE_URL}/3/movie/${movieId}?api_key=${key}`);
 
   return response.ok
@@ -27,9 +27,19 @@ export async function fetchMoviesById(movieId) {
     : Promise.reject(new Error('Not found from Promise Reject'));
 }
 
-export async function fetchMoviesCast(movieId) {
+export async function fetchMovieCast(movieId) {
   const response = await fetch(
     `${BASE_URL}/3/movie/${movieId}/credits?api_key=${key}`,
+  );
+
+  return response.ok
+    ? await response.json()
+    : Promise.reject(new Error('Not found from Promise Reject'));
+}
+
+export async function fetchMovieReview(movieId) {
+  const response = await fetch(
+    `${BASE_URL}/3/movie/${movieId}/reviews?api_key=${key}`,
   );
 
   return response.ok

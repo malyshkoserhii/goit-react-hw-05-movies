@@ -2,18 +2,20 @@
 
 const Cast = ({ cast }) => {
   return (
-    <ul>
-      <li>
-        <div>
-          <p>{cast.cast.map(el => el.original_name)}</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <p>{cast.cast.map(el => el.character)}</p>
-        </div>
-      </li>
-    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>Character</th>
+          <th>Actor/Actress</th>
+        </tr>
+      </thead>
+      {cast.cast.map(el => (
+        <tr>
+          <td>{el.character}</td>
+          <td>{el.original_name}</td>
+        </tr>
+      ))}
+    </table>
   );
 };
 
