@@ -5,7 +5,6 @@ import Review from '../Review/Review';
 
 const MovieCard = ({ movie, cast, review }) => {
   const { url } = useRouteMatch();
-  console.log(url);
 
   return (
     <section>
@@ -24,7 +23,9 @@ const MovieCard = ({ movie, cast, review }) => {
       <p>
         Genre:{' '}
         {movie.genres.map(genre => (
-          <span key={genre.id}>{genre.name}</span>
+          <span key={genre.id}>
+            <span>{genre.name}</span>
+          </span>
         ))}
       </p>
       <p>Description:</p>
