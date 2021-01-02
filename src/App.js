@@ -1,26 +1,34 @@
 import { Route, Switch } from 'react-router-dom';
+import Container from './components/Container/Container';
 import AppBar from './components/AppBar/AppBar';
 import Homepage from './views/Homepage/Homepage';
-import Movies from './views/MoviesPage/MoviesPage';
+import MoviesPage from './views/MoviesPage/MoviesPage';
+import MovieDetailsView from './views/MovieDetailsView/MovieDetailsView';
 import NotFoundView from './views/NotFoundView/NotFoundView';
 
 const App = () => {
   return (
     <>
-      <AppBar />
-      <Switch>
-        <Route exact path="/">
-          <Homepage />
-        </Route>
+      <Container>
+        <AppBar />
+        <Switch>
+          <Route exact path="/">
+            <Homepage />
+          </Route>
 
-        <Route path="/movies">
-          <Movies />
-        </Route>
+          <Route exact path="/movies">
+            <MoviesPage />
+          </Route>
 
-        <Route>
-          <NotFoundView />
-        </Route>
-      </Switch>
+          <Route path="/movies/:movieId">
+            <MovieDetailsView />
+          </Route>
+
+          <Route>
+            <NotFoundView />
+          </Route>
+        </Switch>
+      </Container>
     </>
   );
 };

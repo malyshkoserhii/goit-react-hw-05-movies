@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react';
-import fetchTrendingMovies from '../../services/movies-api';
-import TrendingMovieList from '../../components/MovieList/MovieList';
+import * as moviesApi from '../../services/movies-api';
+import TrendingMovieList from '../../components/MoviesList/MovieList';
 // import s from "./Homepage.module.css";
 
 const Homepage = () => {
   const [trendingMovies, setTrendingMovies] = useState(null);
 
-  // fetchTrendingMovies().then(data => console.log(data.results));
-
   useEffect(() => {
-    fetchTrendingMovies()
+    moviesApi
+      .fetchTrendingMovies()
       .then(data => data.results)
       .then(setTrendingMovies);
   }, []);

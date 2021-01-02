@@ -1,7 +1,7 @@
-import MovieCard from '../MovieCard/MovieCard';
+import MovieCard from '../MovieGallery/MovieGallery';
 import s from './MovieList.module.css';
 
-const MovieList = ({ movies }) => {
+const MoviesList = ({ movies }) => {
   return (
     <ul className={s.movieList}>
       {movies.map(movie => (
@@ -11,4 +11,4 @@ const MovieList = ({ movies }) => {
   );
 };
 
-export default MovieList;
+export default MoviesList;
