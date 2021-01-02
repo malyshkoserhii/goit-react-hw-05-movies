@@ -10,10 +10,12 @@ const Cast = ({ cast }) => {
         </tr>
       </thead>
       {cast.cast.map(el => (
-        <tr>
-          <td>{el.character}</td>
-          <td>{el.original_name}</td>
-        </tr>
+        <tbody key={el.id}>
+          <tr>
+            <td>{el.character}</td>
+            <td>{el.original_name}</td>
+          </tr>
+        </tbody>
       ))}
     </table>
   );
