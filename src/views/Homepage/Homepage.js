@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import * as moviesApi from '../../services/movies-api';
-import TrendingMovieList from '../../components/MoviesList/MovieList';
+import MovieList from '../../components/MoviesList/MovieList';
 // import s from "./Homepage.module.css";
 
 const Homepage = () => {
@@ -13,7 +13,7 @@ const Homepage = () => {
       .then(setTrendingMovies);
   }, []);
 
-  return <>{trendingMovies && <TrendingMovieList movies={trendingMovies} />}</>;
+  return <>{trendingMovies && <MovieList movies={trendingMovies} />}</>;
 };
 
 export default Homepage;

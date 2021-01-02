@@ -5,6 +5,7 @@ import Review from '../Review/Review';
 
 const MovieCard = ({ movie, cast, review }) => {
   const { url } = useRouteMatch();
+  console.log(url);
 
   return (
     <section>
@@ -28,6 +29,7 @@ const MovieCard = ({ movie, cast, review }) => {
       </p>
       <p>Description:</p>
       <p>{movie.overview}</p>
+
       <Link to={`${url}/cast`}>Cast</Link>
       <hr />
       <Route path={`${url}/cast`}>
