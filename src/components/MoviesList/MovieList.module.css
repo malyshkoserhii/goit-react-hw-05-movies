@@ -1,5 +1,13 @@
 .movieList {
-  width: 740px;
-  display: flex;
-  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (min-width: 768px) {
+  .movieList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 }

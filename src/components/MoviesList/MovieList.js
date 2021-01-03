@@ -3,11 +3,11 @@ import s from './MovieList.module.css';
 
 const MoviesList = ({ movies }) => {
   return (
-    <ul className={s.movieList}>
+    <div className={s.movieList}>
       {movies.map(movie => (
         <MovieCard key={movie.id} movie={movie} />
       ))}
-    </ul>
+    </div>
   );
 };
 

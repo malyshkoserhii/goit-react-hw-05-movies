@@ -5,13 +5,14 @@ import Review from '../Review/Review';
 
 const MovieCard = ({ movie, cast, review }) => {
   const { url } = useRouteMatch();
+  const posterImage = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+  const defaultImage =
+    'https://i.dlpng.com/static/png/1330322-minion-concerned-minion-png-400_400_preview.png';
+  const poster = movie.poster_path ? posterImage : defaultImage;
 
   return (
-    <section>
-      <img
-        src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-        alt={movie.title ? movie.title : movie.name}
-      />
+    <div>
+      <img src={poster} alt={movie.title ? movie.title : movie.name} />
       <p>Title: {movie.title ? movie.title : movie.name}</p>
       <p>Release: {movie.release_date}</p>
       <p>
@@ -41,7 +42,7 @@ const MovieCard = ({ movie, cast, review }) => {
       <Route path={`${url}/reviews`}>
         <Review review={review} />
       </Route>
-    </section>
+    </div>
   );
 };
 
