@@ -7,7 +7,7 @@ const MovieCard = ({ movie, cast, review }) => {
   const { url } = useRouteMatch();
 
   return (
-    <section>
+    <div>
       <img
         src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
         alt={movie.title ? movie.title : movie.name}
@@ -41,7 +41,7 @@ const MovieCard = ({ movie, cast, review }) => {
       <Route path={`${url}/reviews`}>
         <Review review={review} />
       </Route>
-    </section>
+    </div>
   );
 };
 
