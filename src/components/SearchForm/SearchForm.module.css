@@ -2,17 +2,31 @@
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  padding: 20px;
-  width: 400px;
+  padding-bottom: 20px;
 }
 
 .input {
-  width: 220px;
+  width: 172px;
   margin: 0 auto;
   outline: none;
   border: 1px solid rgb(0, 0, 0);
 }
 
 .searchButton {
-  width: 120px;
+  width: 60px;
+}
+
+@media screen and (min-width: 768px) {
+  .searchForm {
+    width: 400px;
+    padding-bottom: 20px;
+  }
+
+  .input {
+    width: 280px;
+  }
+
+  .searchButton {
+    width: 100px;
+  }
 }
