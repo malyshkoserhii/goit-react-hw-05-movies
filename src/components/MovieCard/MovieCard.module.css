@@ -1,0 +1,57 @@
+.imageDescriptionWrapper {
+  width: 240px;
+}
+
+.moviesCardImage {
+  margin-bottom: 14px;
+}
+
+.movieCardHeader {
+  font-size: var(--mobile-title-font-size);
+  margin-bottom: 18px;
+}
+
+.movieCardTitle {
+  font-weight: bold;
+}
+
+.movieCardDescription {
+  margin-bottom: 8px;
+  font-size: var(--mobile-font-size);
+  line-height: 1.2;
+}
+
+@media screen and (min-width: 768px) {
+  .imageDescriptionWrapper {
+    width: 280px;
+  }
+
+  .movieCardDescription {
+    width: 368px;
+  }
+
+  .movieCardDescriptionWrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .moviesCardImage {
+    margin-bottom: 0px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .imageDescriptionWrapper {
+    width: 480px;
+    margin-right: 80px;
+  }
+
+  .movieCardDescriptionWrapper {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .moviesCardImage {
+    margin-bottom: 0px;
+  }
+}
