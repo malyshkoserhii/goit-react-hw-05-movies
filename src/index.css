@@ -12,12 +12,23 @@ html {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #212121;
   background-color: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --main-color: rgb(138, 43, 226);
+  --second-color: rgb(220, 20, 60);
+  --mobile-font-size: 14px;
+  --mobile-nav-font-size: 14px;
+  --mobile-title-font-size: 20px;
+  --laptop-font: 16px;
+  --laptop-title-font-small-size: 24px;
+  --laptop-title-font-large-size: 38px;
+  --laptop-description-font: 14px;
 }
 
 img {
@@ -27,5 +38,14 @@ img {
 }
 
 p {
+  margin: 0;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+h2 {
   margin: 0;
 }

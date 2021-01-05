@@ -6,14 +6,31 @@
 }
 
 .input {
-  width: 172px;
+  width: 162px;
+  padding: 4px 8px;
+  line-height: 16px;
   margin: 0 auto;
+  font-size: var(--mobile-font);
   outline: none;
-  border: 1px solid rgb(0, 0, 0);
+  border: 1px solid var(--main-color);
+  border-radius: 4px;
+}
+
+.input::placeholder {
+  font-size: var(--mobile-font-size);
+  font-style: italic;
+  color: var(--main-color);
 }
 
 .searchButton {
-  width: 60px;
+  width: 70px;
+  font-size: var(--mobile-font-size);
+  background-color: var(--main-color);
+  color: rgb(255, 255, 255);
+  border: 1px solid var(--main-color);
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -24,9 +41,16 @@
 
   .input {
     width: 280px;
+    line-height: 22px;
+    font-size: var(--laptop-font);
+  }
+
+  .input::placeholder {
+    font-size: var(--laptop-font);
   }
 
   .searchButton {
+    font-size: var(--laptop-font);
     width: 100px;
   }
 }
