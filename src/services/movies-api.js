@@ -8,20 +8,24 @@ axios.defaults.params = {
   api_key: API_KEY,
 };
 
-export const fetchTrendingMovies = async () => {
+export async function fetchTrendingMovies(page) {
   try {
-    const { data } = await axios.get('/trending/all/day');
+    const { data } = await axios.get('/trending/all/day', {
+      params: { page: page },
+    });
+
     return data.results;
   } catch (error) {
     console.log('error', { error });
     return [];
   }
-};
+}
 
-export async function fetchMoviesWithQuery(query) {
+export async function fetchMoviesWithQuery(query, page) {
   try {
-    const { data } = await axios.get(`/search/movie/?query=${query}`);
-
+    const { data } = await axios.get(`/search/movie/`, {
+      params: { query: query, page: page },
+    });
     return data.results;
   } catch (error) {
     console.log('error', { error });
@@ -32,7 +36,8 @@ export async function fetchMoviesWithQuery(query) {
 export async function fetchMovieById(movieId) {
   try {
     const { data } = await axios(`/movie/${movieId}`);
-    return data;
+    console.log('{data}', data);
+    return await data;
   } catch (error) {
     console.log('error', { error });
     return [];

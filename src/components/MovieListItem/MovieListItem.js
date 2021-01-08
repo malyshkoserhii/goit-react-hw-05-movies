@@ -1,7 +1,7 @@
 import { Link, useRouteMatch } from 'react-router-dom';
-import s from './MovieGallery.module.css';
+import s from './MovieListItem.module.css';
 
-const MovieGallery = ({ movie }) => {
+const MovieListItem = ({ movie }) => {
   const { url } = useRouteMatch();
   const backdropImage = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`;
   const defaultImage =
@@ -35,4 +35,4 @@ const MovieGallery = ({ movie }) => {
   );
 };
 
-export default MovieGallery;
+export default MovieListItem;

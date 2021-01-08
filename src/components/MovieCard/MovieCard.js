@@ -29,20 +29,20 @@ const MovieCard = ({ movie, cast, review }) => {
             <span className={s.movieCardTitle}>Release:</span>{' '}
             {movie.release_date}
           </p>
-          <p className={s.movieCardDescription}>
+          {/* <p className={s.movieCardDescription}>
             <span className={s.movieCardTitle}>Countries: </span>
             {movie.production_countries.map(country => (
               <span key={country.iso_3166_1}>{country.name}</span>
             ))}
-          </p>
-          <p className={s.movieCardDescription}>
+          </p> */}
+          {/* <p className={s.movieCardDescription}>
             <span className={s.movieCardTitle}>Genre: </span>
             {movie.genres.map(genre => (
               <span key={genre.id}>
                 <span>{genre.name}</span>
               </span>
             ))}
-          </p>
+          </p> */}
           <p className={s.movieCardDescription}>
             <span className={s.movieCardTitle}>Description:</span>
           </p>
