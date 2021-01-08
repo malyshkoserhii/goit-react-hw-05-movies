@@ -9,8 +9,8 @@ const MovieListItem = ({ movie }) => {
   const backdrop = movie.backdrop_path ? backdropImage : defaultImage;
 
   return url === '/' ? (
-    <Link to={`${movie.id}`} className={s.movieGallery}>
-      <section className={s.movieGallerySection}>
+    <Link to={`${movie.id}`} className={s.movieListItem}>
+      <section className={s.movieItemSection}>
         <div className={s.imageWrapper}>
           <img src={backdrop} alt={movie.title ? movie.title : movie.name} />
         </div>
@@ -20,9 +20,9 @@ const MovieListItem = ({ movie }) => {
       </section>
     </Link>
   ) : (
-    <Link to={`${url}/${movie.id}`} className={s.movieGallery}>
+    <Link to={`${url}/${movie.id}`} className={s.movieListItem}>
       <>
-        <section className={s.movieGallerySection}>
+        <section className={s.movieItemSection}>
           <div className={s.imageWrapper}>
             <img src={backdrop} alt={movie.title ? movie.title : movie.name} />
           </div>

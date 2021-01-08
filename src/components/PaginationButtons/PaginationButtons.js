@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useRouteMatch, useHistory, useLocation } from 'react-router-dom';
+import { useRouteMatch } from 'react-router-dom';
 import * as moviesApi from '../../services/movies-api';
 import s from './PaginationButtons.module.css';
 
@@ -9,10 +9,9 @@ const PaginationButtons = ({
   setTrendingMovies,
   setMovies,
   onLoadingNextPage,
+  onLoadingPreviousPage,
 }) => {
   const url = useRouteMatch();
-  // const history = useHistory();
-  // const location = useLocation();
 
   useEffect(() => {
     if (url !== '/') {
@@ -47,7 +46,11 @@ const PaginationButtons = ({
 
   return (
     <div className={s.buttonsWrapper}>
-      <button type="submit" className={s.paginationButton}>
+      <button
+        type="submit"
+        className={s.paginationButton}
+        onClick={onLoadingPreviousPage}
+      >
         Previous
       </button>
       <span className={s.counter}>{page}</span>

@@ -7,7 +7,7 @@ const MovieCard = ({ movie, cast, review }) => {
   const { url } = useRouteMatch();
   const posterImage = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
   const defaultImage =
-    'https://i.dlpng.com/static/png/1330322-minion-concerned-minion-png-400_400_preview.png';
+    'https://college.unc.edu/wp-content/uploads/sites/1224/2020/05/film1.jpg';
   const poster = movie.poster_path ? posterImage : defaultImage;
 
   return (

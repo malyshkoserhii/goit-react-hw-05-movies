@@ -1,5 +1,4 @@
 import MovieListItem from '../MovieListItem/MovieListItem';
-// import PaginationButtons from '../PaginationButtons/PaginationButtons';
 import s from './MovieList.module.css';
 
 const MoviesList = ({ movies }) => {
@@ -10,7 +9,6 @@ const MoviesList = ({ movies }) => {
           <MovieListItem key={movie.id} movie={movie} />
         ))}
       </div>
-      {/* {movies.length >= 20 && <PaginationButtons />} */}
     </>
   );
 };

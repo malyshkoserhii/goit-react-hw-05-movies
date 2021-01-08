@@ -17,8 +17,12 @@ const MoviesPage = () => {
     }
 
     async function fetchMovies() {
-      const fetch = await moviesApi.fetchMoviesWithQuery(query, page);
-      setMovies(state => [...state, ...fetch]);
+      try {
+        await moviesApi.fetchMoviesWithQuery(query, page).then(setMovies);
+      } catch (error) {
+        console.log(error);
+        return [];
+      }
     }
 
     if (query) fetchMovies();
@@ -26,23 +30,29 @@ const MoviesPage = () => {
 
   const onChangeQuery = query => {
     setQuery(query);
-    console.log(query);
   };
 
   const loadingNextPage = () => {
     return setPage(state => state + 1);
   };
 
+  const loadingPreviousPage = () => {
+    return setPage(state => state - 1);
+  };
+
   return (
     <>
       <SearchForm onChangeForm={onChangeQuery} />
       <MoviesList movies={movies} />
-      <PaginationButtons
-        query={query}
-        page={page}
-        setMovies={setMovies}
-        onLoadingNextPage={loadingNextPage}
-      />
+      {movies.length >= 20 && (
+        <PaginationButtons
+          query={query}
+          page={page}
+          setMovies={setMovies}
+          onLoadingNextPage={loadingNextPage}
+          onLoadingPreviousPage={loadingPreviousPage}
+        />
+      )}
     </>
   );
 };
