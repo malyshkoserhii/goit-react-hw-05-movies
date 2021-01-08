@@ -1,48 +1,64 @@
-const key = 'faafef79ea4c171e4623351b880cc7ac';
-const BASE_URL = 'https://api.themoviedb.org';
+import axios from 'axios';
 
-export async function fetchTrendingMovies() {
-  const response = await fetch(`${BASE_URL}/3/trending/all/day?api_key=${key}`);
+const BASE_URL = 'https://api.themoviedb.org/3';
+const API_KEY = 'faafef79ea4c171e4623351b880cc7ac';
 
-  return response.ok
-    ? await response.json()
-    : Promise.reject(new Error('Not found from Promise Reject'));
+axios.defaults.baseURL = BASE_URL;
+axios.defaults.params = {
+  api_key: API_KEY,
+};
+
+export async function fetchTrendingMovies(page) {
+  try {
+    const { data } = await axios.get('/trending/all/day', {
+      params: { page: page },
+    });
+
+    return data.results;
+  } catch (error) {
+    console.log('error', { error });
+    return [];
+  }
 }
 
-export async function fetchMoviesWithQuery(query) {
-  const response = await fetch(
-    `${BASE_URL}/3/search/movie?api_key=${key}&query=${query}`,
-  );
-
-  return response.ok
-    ? await response.json()
-    : Promise.reject(new Error('Not found from Promise Reject'));
+export async function fetchMoviesWithQuery(query, page) {
+  try {
+    const { data } = await axios.get(`/search/movie/`, {
+      params: { query: query, page: page },
+    });
+    return data.results;
+  } catch (error) {
+    console.log('error', { error });
+    return [];
+  }
 }
 
 export async function fetchMovieById(movieId) {
-  const response = await fetch(`${BASE_URL}/3/movie/${movieId}?api_key=${key}`);
-
-  return response.ok
-    ? await response.json()
-    : Promise.reject(new Error('Not found from Promise Reject'));
+  try {
+    const { data } = await axios(`/movie/${movieId}`);
+    return await data;
+  } catch (error) {
+    console.log('error', { error });
+    return [];
+  }
 }
 
 export async function fetchMovieCast(movieId) {
-  const response = await fetch(
-    `${BASE_URL}/3/movie/${movieId}/credits?api_key=${key}`,
-  );
-
-  return response.ok
-    ? await response.json()
-    : Promise.reject(new Error('Not found from Promise Reject'));
+  try {
+    const { data } = await axios(`movie/${movieId}/credits`);
+    return data;
+  } catch (error) {
+    console.log('error', { error });
+    return [];
+  }
 }
 
 export async function fetchMovieReview(movieId) {
-  const response = await fetch(
-    `${BASE_URL}/3/movie/${movieId}/reviews?api_key=${key}`,
-  );
-
-  return response.ok
-    ? await response.json()
-    : Promise.reject(new Error('Not found from Promise Reject'));
+  try {
+    const { data } = await axios(`movie/${movieId}/reviews`);
+    return data;
+  } catch (error) {
+    console.log('error', { error });
+    return [];
+  }
 }

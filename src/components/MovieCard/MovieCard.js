@@ -7,7 +7,7 @@ const MovieCard = ({ movie, cast, review }) => {
   const { url } = useRouteMatch();
   const posterImage = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
   const defaultImage =
-    'https://i.dlpng.com/static/png/1330322-minion-concerned-minion-png-400_400_preview.png';
+    'https://college.unc.edu/wp-content/uploads/sites/1224/2020/05/film1.jpg';
   const poster = movie.poster_path ? posterImage : defaultImage;
 
   return (
@@ -29,20 +29,20 @@ const MovieCard = ({ movie, cast, review }) => {
             <span className={s.movieCardTitle}>Release:</span>{' '}
             {movie.release_date}
           </p>
-          <p className={s.movieCardDescription}>
+          {/* <p className={s.movieCardDescription}>
             <span className={s.movieCardTitle}>Countries: </span>
             {movie.production_countries.map(country => (
               <span key={country.iso_3166_1}>{country.name}</span>
             ))}
-          </p>
-          <p className={s.movieCardDescription}>
+          </p> */}
+          {/* <p className={s.movieCardDescription}>
             <span className={s.movieCardTitle}>Genre: </span>
             {movie.genres.map(genre => (
               <span key={genre.id}>
                 <span>{genre.name}</span>
               </span>
             ))}
-          </p>
+          </p> */}
           <p className={s.movieCardDescription}>
             <span className={s.movieCardTitle}>Description:</span>
           </p>

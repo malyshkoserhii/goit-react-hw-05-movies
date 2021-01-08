@@ -1,0 +1,6 @@
+.buttonsWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 280px;
+  margin: 0 auto;
+}

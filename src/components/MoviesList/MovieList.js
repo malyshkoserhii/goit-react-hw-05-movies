@@ -1,13 +1,15 @@
-import MovieCard from '../MovieGallery/MovieGallery';
+import MovieListItem from '../MovieListItem/MovieListItem';
 import s from './MovieList.module.css';
 
 const MoviesList = ({ movies }) => {
   return (
-    <div className={s.movieList}>
-      {movies.map(movie => (
-        <MovieCard key={movie.id} movie={movie} />
-      ))}
-    </div>
+    <>
+      <div className={s.movieList}>
+        {movies.map(movie => (
+          <MovieListItem key={movie.id} movie={movie} />
+        ))}
+      </div>
+    </>
   );
 };
 
