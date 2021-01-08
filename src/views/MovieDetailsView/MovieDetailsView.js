@@ -14,7 +14,6 @@ const MovieDetailsView = () => {
     const fetch = async () => {
       try {
         await moviesApi.fetchMovieById(movieId).then(setMovie);
-        console.log('123');
       } catch (error) {
         console.log(error);
       }

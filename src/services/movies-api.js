@@ -36,7 +36,6 @@ export async function fetchMoviesWithQuery(query, page) {
 export async function fetchMovieById(movieId) {
   try {
     const { data } = await axios(`/movie/${movieId}`);
-    console.log('{data}', data);
     return await data;
   } catch (error) {
     console.log('error', { error });

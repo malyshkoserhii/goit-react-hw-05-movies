@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useRouteMatch } from 'react-router-dom';
+import { useRouteMatch, useHistory, useLocation } from 'react-router-dom';
 import * as moviesApi from '../../services/movies-api';
 import s from './PaginationButtons.module.css';
 
@@ -11,6 +11,8 @@ const PaginationButtons = ({
   onLoadingNextPage,
 }) => {
   const url = useRouteMatch();
+  // const history = useHistory();
+  // const location = useLocation();
 
   useEffect(() => {
     if (url !== '/') {
@@ -24,6 +26,7 @@ const PaginationButtons = ({
         console.log(error);
       }
     };
+
     homepageRequest();
   }, [page, setTrendingMovies, url]);
 
