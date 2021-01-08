@@ -7,10 +7,7 @@ const Homepage = () => {
   const [trendingMovies, setTrendingMovies] = useState(null);
 
   useEffect(() => {
-    moviesApi
-      .fetchTrendingMovies()
-      .then(data => data.results)
-      .then(setTrendingMovies);
+    moviesApi.fetchTrendingMovies().then(setTrendingMovies);
   }, []);
 
   return <>{trendingMovies && <MovieList movies={trendingMovies} />}</>;

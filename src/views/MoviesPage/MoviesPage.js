@@ -15,9 +15,7 @@ const MoviesPage = () => {
     }
 
     async function fetchMovies() {
-      const fetch = await moviesApi
-        .fetchMoviesWithQuery(query)
-        .then(data => data.results);
+      const fetch = await moviesApi.fetchMoviesWithQuery(query);
       setMovies(state => [...state, ...fetch]);
     }
 
@@ -26,6 +24,7 @@ const MoviesPage = () => {
 
   const onChangeQuery = query => {
     setQuery(query);
+    console.log(query);
   };
 
   return (
