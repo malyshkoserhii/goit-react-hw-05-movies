@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import * as moviesApi from '../../services/movies-api';
+import Button from './../Button/Button';
 import s from './PaginationButtons.module.css';
 
 const PaginationButtons = ({
@@ -46,21 +47,21 @@ const PaginationButtons = ({
 
   return (
     <div className={s.buttonsWrapper}>
-      <button
-        type="submit"
-        className={s.paginationButton}
-        onClick={onLoadingPreviousPage}
-      >
-        Previous
-      </button>
+      {page > 1 && (
+        <Button
+          type="submit"
+          className={s.paginationButton}
+          onClick={onLoadingPreviousPage}
+          text="Previous"
+        />
+      )}
       <span className={s.counter}>{page}</span>
-      <button
+      <Button
         type="submit"
         className={s.paginationButton}
         onClick={onLoadingNextPage}
-      >
-        Next
-      </button>
+        text="Next"
+      />
     </div>
   );
 };

@@ -1,6 +1,14 @@
 .buttonsWrapper {
   display: flex;
   justify-content: space-between;
-  width: 280px;
+  width: 160px;
   margin: 0 auto;
 }
+
+.counter {
+  flex-shrink: 1;
+}
+
+/* .paginationButton {
+  flex-grow: 2;
+} */

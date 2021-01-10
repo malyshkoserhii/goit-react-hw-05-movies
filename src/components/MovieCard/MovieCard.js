@@ -1,17 +1,36 @@
-import { Link, Route, useRouteMatch } from 'react-router-dom';
+import {
+  Link,
+  Route,
+  useRouteMatch,
+  useLocation,
+  useHistory,
+} from 'react-router-dom';
 import Cast from '../Cast/Cast';
 import Review from '../Review/Review';
 import s from './MovieCard.module.css';
 
 const MovieCard = ({ movie, cast, review }) => {
   const { url } = useRouteMatch();
+  const location = useLocation();
+  const history = useHistory();
+
+  console.log('from MoviesCard', location);
+
   const posterImage = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
   const defaultImage =
     'https://college.unc.edu/wp-content/uploads/sites/1224/2020/05/film1.jpg';
   const poster = movie.poster_path ? posterImage : defaultImage;
 
+  const onGoBack = () => {
+    history.push(location?.state?.from ?? '/');
+    console.log('Clicked BACK');
+  };
+
   return (
     <section className={s.movieCardSection}>
+      <button type="button" onClick={onGoBack}>
+        Back
+      </button>
       <div className={s.movieCardDescriptionWrapper}>
         <div className={s.imageDescriptionWrapper}>
           <img

@@ -1,0 +1,20 @@
+.movieListItemImageWrapper {
+  padding-bottom: 10px;
+}
+
+.movieListItemTitle {
+  color: var(--second-color);
+  font-size: var(--mobile-font-size);
+}
+
+@media screen and (min-width: 768px) {
+  .movieListItemTitle {
+    font-size: var(--laptop-font);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .movieListItemTitle {
+    font-size: var(--laptop-font);
+  }
+}
