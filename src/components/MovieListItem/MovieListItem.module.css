@@ -20,26 +20,14 @@
   transform: scale(1.05);
 }
 
-.imageWrapper {
-  margin-bottom: 20px;
-  width: 240px;
-  border: 1px solid black;
-}
-
-.galleryMovieTitle {
-  color: var(--second-color);
-  padding-bottom: 20px;
-  font-size: 20px;
-}
-
 @media screen and (min-width: 768px) {
-  .imageWrapper {
-    width: 340px;
+  .movieListItem {
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .imageWrapper {
-    width: 480px;
+  .movieListItem {
+    grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
   }
 }
