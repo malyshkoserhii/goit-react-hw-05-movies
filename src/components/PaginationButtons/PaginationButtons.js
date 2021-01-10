@@ -46,23 +46,27 @@ const PaginationButtons = ({
   }, [page, query, setMovies, url]);
 
   return (
-    <div className={s.buttonsWrapper}>
-      {page > 1 && (
+    <section className={s.paginationButtonSection}>
+      <div className={s.buttonsWrapper}>
+        <div className={s.prevBtnWrapper}>
+          {page > 1 && (
+            <Button
+              type="submit"
+              className={s.paginationButton}
+              onClick={onLoadingPreviousPage}
+              text="Previous"
+            />
+          )}
+        </div>
+        <span className={s.counter}>{page}</span>
         <Button
           type="submit"
           className={s.paginationButton}
-          onClick={onLoadingPreviousPage}
-          text="Previous"
+          onClick={onLoadingNextPage}
+          text="Next"
         />
-      )}
-      <span className={s.counter}>{page}</span>
-      <Button
-        type="submit"
-        className={s.paginationButton}
-        onClick={onLoadingNextPage}
-        text="Next"
-      />
-    </div>
+      </div>
+    </section>
   );
 };
 

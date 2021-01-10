@@ -1,14 +1,36 @@
-.buttonsWrapper {
-  display: flex;
-  justify-content: space-between;
-  width: 160px;
+.paginationButtonSection {
+  width: 240px;
   margin: 0 auto;
 }
 
-.counter {
-  flex-shrink: 1;
+.buttonsWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  margin: 0 auto;
 }
 
-/* .paginationButton {
-  flex-grow: 2;
-} */
+.prevBtnWrapper {
+  width: 80px;
+}
+
+.paginationButton {
+  font-weight: 700;
+  outline: none;
+  cursor: pointer;
+  line-height: 24px;
+  background-color: rgb(255, 255, 255);
+  color: var(--main-color);
+  border: none;
+}
+
+.paginationButton:hover {
+  background-color: var(--main-color);
+  color: rgb(255, 255, 255);
+  border: none solid var(--main-color);
+}
+
+.counter {
+  margin: auto;
+  font-weight: 700;
+  color: var(--main-color);
+}

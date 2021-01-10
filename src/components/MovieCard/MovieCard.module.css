@@ -21,7 +21,12 @@
   line-height: 1.2;
 }
 
-@media screen and (min-width: 768px) {
+.defaultImage {
+  width: 500px;
+  height: 281px;
+}
+
+/* @media screen and (min-width: 768px) {
   .imageDescriptionWrapper {
     width: 280px;
   }
@@ -38,9 +43,9 @@
   .moviesCardImage {
     margin-bottom: 0px;
   }
-}
+} */
 
-@media screen and (min-width: 1440px) {
+/* @media screen and (min-width: 1440px) {
   .imageDescriptionWrapper {
     width: 480px;
     margin-right: 80px;
@@ -54,4 +59,4 @@
   .moviesCardImage {
     margin-bottom: 0px;
   }
-}
+} */
