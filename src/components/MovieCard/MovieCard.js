@@ -7,14 +7,13 @@ import {
 } from 'react-router-dom';
 import Cast from '../Cast/Cast';
 import Review from '../Review/Review';
+import Fallback from '../Fallback/Fallback';
 import s from './MovieCard.module.css';
 
 const MovieCard = ({ movie, cast, review }) => {
   const { url } = useRouteMatch();
   const location = useLocation();
   const history = useHistory();
-
-  console.log('from MoviesCard', location);
 
   const posterImage = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
   const defaultImage =
@@ -23,8 +22,11 @@ const MovieCard = ({ movie, cast, review }) => {
 
   const onGoBack = () => {
     history.push(location?.state?.from ?? '/');
-    console.log('Clicked BACK');
   };
+
+  if (!movie.title) {
+    return <Fallback />;
+  }
 
   return (
     <section className={s.movieCardSection}>
@@ -48,20 +50,24 @@ const MovieCard = ({ movie, cast, review }) => {
             <span className={s.movieCardTitle}>Release:</span>{' '}
             {movie.release_date}
           </p>
-          {/* <p className={s.movieCardDescription}>
+          <p className={s.movieCardDescription}>
             <span className={s.movieCardTitle}>Countries: </span>
             {movie.production_countries.map(country => (
               <span key={country.iso_3166_1}>{country.name}</span>
             ))}
-          </p> */}
-          {/* <p className={s.movieCardDescription}>
+          </p>
+          <p className={s.movieCardDescription}>
             <span className={s.movieCardTitle}>Genre: </span>
-            {movie.genres.map(genre => (
+            {movie.genres.map((genre, idx) => (
               <span key={genre.id}>
-                <span>{genre.name}</span>
+                <span>
+                  {idx + 1 === movie.genres.length
+                    ? `${genre.name}`
+                    : `${genre.name}, `}{' '}
+                </span>
               </span>
             ))}
-          </p> */}
+          </p>
           <p className={s.movieCardDescription}>
             <span className={s.movieCardTitle}>Description:</span>
           </p>

@@ -13,7 +13,6 @@ export async function fetchTrendingMovies(page) {
     const { data } = await axios.get('/trending/all/day', {
       params: { page: page },
     });
-
     return data.results;
   } catch (error) {
     console.log('error', { error });

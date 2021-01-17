@@ -1,12 +1,17 @@
 import { useState, useEffect } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 import * as moviesApi from '../../services/movies-api';
 import MovieList from '../../components/MoviesList/MovieList';
 import PaginationButtons from '../../components/PaginationButtons/PaginationButtons';
+import utilites from '../../utilites/utilites';
 // import s from "./Homepage.module.css";
 
 const Homepage = () => {
-  const [trendingMovies, setTrendingMovies] = useState(null);
-  const [page, setPage] = useState(1);
+  const page = Number(utilites.getParameterByName('page')) || 1;
+  const [trendingMovies, setTrendingMovies] = useState([]);
+
+  const history = useHistory();
+  const location = useLocation();
 
   useEffect(() => {
     const initialHomePageRender = async () => {
@@ -16,15 +21,15 @@ const Homepage = () => {
         console.log(error);
       }
     };
+
     initialHomePageRender();
   }, [page]);
 
-  const loadingNextPage = () => {
-    return setPage(state => state + 1);
-  };
-
-  const loadingPreviousPage = () => {
-    return setPage(state => state - 1);
+  const changePage = page => {
+    history.push({
+      ...location,
+      search: `page=${page}`,
+    });
   };
 
   return (
@@ -33,8 +38,7 @@ const Homepage = () => {
       <PaginationButtons
         page={page}
         setTrendingMovies={setTrendingMovies}
-        onLoadingNextPage={loadingNextPage}
-        onLoadingPreviousPage={loadingPreviousPage}
+        changePage={changePage}
       />
     </>
   );

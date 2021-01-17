@@ -1,7 +1,16 @@
+import Fallback from '../Fallback/Fallback';
 // import s from './Review.module.css';
 
 const Review = ({ review }) => {
-  return review.results.length !== 0 ? (
+  if (!review.results) {
+    return <Fallback />;
+  }
+
+  if (review.results.length === 0) {
+    return <p>Nobody has written a review yet</p>;
+  }
+
+  return (
     <div>
       {review.results.map(el => (
         <div key={el.id}>
@@ -10,8 +19,6 @@ const Review = ({ review }) => {
         </div>
       ))}
     </div>
-  ) : (
-    <p>Nobody has written a review yet</p>
   );
 };
 

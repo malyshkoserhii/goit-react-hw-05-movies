@@ -9,8 +9,7 @@ const PaginationButtons = ({
   query,
   setTrendingMovies,
   setMovies,
-  onLoadingNextPage,
-  onLoadingPreviousPage,
+  changePage,
 }) => {
   const url = useRouteMatch();
 
@@ -53,7 +52,7 @@ const PaginationButtons = ({
             <Button
               type="submit"
               className={s.paginationButton}
-              onClick={onLoadingPreviousPage}
+              onClick={() => changePage(page - 1)}
               text="Previous"
             />
           )}
@@ -62,7 +61,7 @@ const PaginationButtons = ({
         <Button
           type="submit"
           className={s.paginationButton}
-          onClick={onLoadingNextPage}
+          onClick={() => changePage(page + 1)}
           text="Next"
         />
       </div>
