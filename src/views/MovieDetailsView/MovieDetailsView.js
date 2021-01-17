@@ -6,9 +6,9 @@ import MovieCard from '../../components/MovieCard/MovieCard';
 
 const MovieDetailsView = () => {
   const { movieId } = useParams();
-  const [movie, setMovie] = useState([]);
-  const [cast, setCast] = useState(null);
-  const [review, setReview] = useState(null);
+  const [movie, setMovie] = useState({});
+  const [cast, setCast] = useState({});
+  const [review, setReview] = useState({});
 
   useEffect(() => {
     const fetch = async () => {
@@ -22,11 +22,11 @@ const MovieDetailsView = () => {
     fetch();
   }, [movieId]);
 
-  useState(() => {
+  useEffect(() => {
     moviesApi.fetchMovieCast(movieId).then(setCast);
   }, [movieId]);
 
-  useState(() => {
+  useEffect(() => {
     moviesApi.fetchMovieReview(movieId).then(setReview);
   }, [movieId]);
 
