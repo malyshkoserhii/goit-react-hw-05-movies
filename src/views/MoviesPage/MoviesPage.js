@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import { useHistory, useLocation } from 'react-router-dom';
 import * as moviesApi from '../../services/movies-api';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import MoviesList from '../../components/MoviesList/MovieList';
@@ -8,8 +8,11 @@ import PaginationButtons from '../../components/PaginationButtons/PaginationButt
 
 const MoviesPage = () => {
   const [query, setQuery] = useState('');
-  const [page, setPage] = useState(1);
   const [movies, setMovies] = useState([]);
+
+  const history = useHistory();
+  const location = useLocation();
+  const page = Number(new URLSearchParams(location.search).get('page') || 1);
 
   useEffect(() => {
     if (query === '') {
@@ -32,12 +35,11 @@ const MoviesPage = () => {
     setQuery(query);
   };
 
-  const loadingNextPage = () => {
-    return setPage(state => state + 1);
-  };
-
-  const loadingPreviousPage = () => {
-    return setPage(state => state - 1);
+  const changePage = page => {
+    history.push({
+      ...location,
+      search: `&page=${page}`,
+    });
   };
 
   return (
@@ -49,8 +51,7 @@ const MoviesPage = () => {
           query={query}
           page={page}
           setMovies={setMovies}
-          onLoadingNextPage={loadingNextPage}
-          onLoadingPreviousPage={loadingPreviousPage}
+          changePage={changePage}
         />
       )}
     </>
