@@ -3,15 +3,14 @@ import { useHistory, useLocation } from 'react-router-dom';
 import * as moviesApi from '../../services/movies-api';
 import MovieList from '../../components/MoviesList/MovieList';
 import PaginationButtons from '../../components/PaginationButtons/PaginationButtons';
-import utilites from '../../utilites/utilites';
 // import s from "./Homepage.module.css";
 
 const Homepage = () => {
-  const page = Number(utilites.getParameterByName('page')) || 1;
   const [trendingMovies, setTrendingMovies] = useState([]);
 
   const history = useHistory();
   const location = useLocation();
+  const page = Number(new URLSearchParams(location.search).get('page') || 1);
 
   useEffect(() => {
     const initialHomePageRender = async () => {
@@ -19,6 +18,7 @@ const Homepage = () => {
         await moviesApi.fetchTrendingMovies(page).then(setTrendingMovies);
       } catch (error) {
         console.log(error);
+        return [];
       }
     };
 
