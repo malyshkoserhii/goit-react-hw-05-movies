@@ -30,7 +30,7 @@ const MovieCard = ({ movie, cast, review }) => {
 
   return (
     <section className={s.movieCardSection}>
-      <button type="button" onClick={onGoBack}>
+      <button type="button" onClick={onGoBack} className={s.button}>
         Back
       </button>
       <div className={s.movieCardDescriptionWrapper}>

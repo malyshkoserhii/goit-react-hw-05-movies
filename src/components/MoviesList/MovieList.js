@@ -4,11 +4,11 @@ import s from './MovieList.module.css';
 const MoviesList = ({ movies }) => {
   return (
     <>
-      <div className={s.movieList}>
+      <section className={s.list}>
         {movies.map(movie => (
           <MovieListItem key={movie.id} movie={movie} />
         ))}
-      </div>
+      </section>
     </>
   );
 };

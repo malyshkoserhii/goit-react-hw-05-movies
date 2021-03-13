@@ -45,22 +45,22 @@ const PaginationButtons = ({
   }, [page, query, setMovies, url]);
 
   return (
-    <section className={s.paginationButtonSection}>
-      <div className={s.buttonsWrapper}>
+    <section className={s.pagination}>
+      <div className={s.wrapper}>
         <div className={s.prevBtnWrapper}>
           {page > 1 && (
             <Button
               type="submit"
-              className={s.paginationButton}
+              className={s.button}
               onClick={() => changePage(page - 1)}
-              text="Previous"
+              text="Prev"
             />
           )}
         </div>
         <span className={s.counter}>{page}</span>
         <Button
           type="submit"
-          className={s.paginationButton}
+          className={s.button}
           onClick={() => changePage(page + 1)}
           text="Next"
         />

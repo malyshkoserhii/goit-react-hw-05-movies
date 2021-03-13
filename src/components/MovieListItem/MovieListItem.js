@@ -15,7 +15,7 @@ const MovieListItem = ({ movie }) => {
           from: location,
         },
       }}
-      className={s.movieListItem}
+      className={s.item}
     >
       <MovieListItemMarkup movie={movie} />
     </Link>

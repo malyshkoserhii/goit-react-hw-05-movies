@@ -6,7 +6,7 @@ import s from './Navigation.module.css';
 
 const Navigation = () => (
   <nav className={s.nav}>
-    <div class={s.logo}>
+    <div id="logo" className={s.logo}>
       <Link to="/" className={s.logoLink}>
         <img src={logo} alt="Filmoteka Logo Image" className={s.image} />
         <span className={s.span}>Filmoteka</span>
@@ -29,8 +29,8 @@ const Navigation = () => (
           className={s.navLink}
           activeClassName={s.activeLink}
         >
-          Movies
-        </NavLink>{' '}
+          My library
+        </NavLink>
       </li>
     </ul>
   </nav>

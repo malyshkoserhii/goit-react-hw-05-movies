@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Fallback from './components/Fallback/Fallback';
 import Container from './components/Container/Container';
 import AppBar from './components/AppBar/AppBar';
+import Footer from './components/Footer/Footer';
 
 const Homepage = lazy(() =>
   import(
@@ -54,6 +55,7 @@ const App = () => {
           </Switch>
         </Suspense>
       </Container>
+      <Footer />
     </>
   );
 };

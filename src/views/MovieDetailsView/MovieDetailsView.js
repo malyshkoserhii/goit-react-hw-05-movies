@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import * as moviesApi from '../../services/movies-api';
 import MovieCard from '../../components/MovieCard/MovieCard';
-// import s from './MovieDetailsView.module.css';
 
 const MovieDetailsView = () => {
   const { movieId } = useParams();
