@@ -28,8 +28,8 @@ const NotFoundView = lazy(() =>
 const App = () => {
   return (
     <>
+      <AppBar />
       <Container>
-        <AppBar />
         <Suspense fallback={<Fallback />}>
           <Switch>
             <Route exact path="/">
