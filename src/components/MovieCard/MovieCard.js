@@ -29,64 +29,95 @@ const MovieCard = ({ movie, cast, review }) => {
   }
 
   return (
-    <section className={s.movieCardSection}>
-      <button type="button" onClick={onGoBack} className={s.button}>
-        Back
-      </button>
-      <div className={s.movieCardDescriptionWrapper}>
-        <div className={s.imageDescriptionWrapper}>
+    <>
+      <div className={s.backBtnWrapper}>
+        <button type="button" onClick={onGoBack} className={s.button}>
+          Back
+        </button>
+      </div>
+      <section className={s.details}>
+        <div className={s.imageBlock}>
           <img
             src={poster}
             alt={movie.title ? movie.title : movie.name}
             className={s.moviesCardImage}
           />
         </div>
-        <div className={s.movieCardDescription}>
-          <h2 className={s.movieCardHeader}>
-            <span className={s.movieCardTitle}>Title:</span>{' '}
-            {movie.title ? movie.title : movie.name}
-          </h2>
-          <p className={s.movieCardDescription}>
-            <span className={s.movieCardTitle}>Release:</span>{' '}
-            {movie.release_date}
-          </p>
-          <p className={s.movieCardDescription}>
-            <span className={s.movieCardTitle}>Countries: </span>
-            {movie.production_countries.map(country => (
-              <span key={country.iso_3166_1}>{country.name}</span>
-            ))}
-          </p>
-          <p className={s.movieCardDescription}>
-            <span className={s.movieCardTitle}>Genre: </span>
-            {movie.genres.map((genre, idx) => (
-              <span key={genre.id}>
-                <span>
-                  {idx + 1 === movie.genres.length
-                    ? `${genre.name}`
-                    : `${genre.name}, `}{' '}
-                </span>
-              </span>
-            ))}
-          </p>
-          <p className={s.movieCardDescription}>
-            <span className={s.movieCardTitle}>Description:</span>
-          </p>
-          <p className={s.movieCardDescription}>{movie.overview}</p>
+        <div className={s.infoBlock}>
+          <h2 className={s.title}>{movie.title ? movie.title : movie.name}</h2>
 
-          <Link to={`${url}/cast`}>Cast</Link>
-          <hr />
+          <ul>
+            <li className={s.infoItem}>
+              <p className={s.infoName}>vote/votes</p>
+              <p className={s.infoValue}>{movie.vote_average}</p>
+            </li>
+            <li className={s.infoItem}>
+              <p className={s.infoName}>popularity</p>
+              <p className={s.infoValue}>{movie.popularity}</p>
+            </li>
+            <li className={s.infoItem}>
+              <p className={s.infoName}>original title</p>
+              <p className={s.infoValue}>{movie.original_title}</p>
+            </li>
+            <li className={s.infoItem}>
+              <p className={s.infoName}>genre</p>
+              <p className={s.infoValue}>
+                {movie.genres.map((genre, idx) => (
+                  <span key={genre.id}>
+                    <span>
+                      {idx + 1 === movie.genres.length
+                        ? `${genre.name}`
+                        : `${genre.name}, `}
+                    </span>
+                  </span>
+                ))}
+              </p>
+            </li>
+            <li className={s.infoItem}>
+              <p className={s.infoName}>release date</p>
+              <p className={s.infoValue}>{movie.release_date}</p>
+            </li>
+            <li className={s.infoItem}>
+              <p className={s.infoName}>country / countries</p>
+              <p className={s.infoValue}>
+                {movie.production_countries.map(country => (
+                  <span key={country.iso_3166_1}>{country.name}</span>
+                ))}
+              </p>
+            </li>
+            <li className={s.infoItem}>
+              <p className={s.infoName}>tagline</p>
+              <p className={s.infoValue}>{movie.tagline}</p>
+            </li>
+          </ul>
+
+          <h3 className={s.title}>About</h3>
+          <p className={s.description}>{movie.overview}</p>
+
+          <Link to={`${url}/cast`} className={s.link}>
+            Cast
+          </Link>
+
           <Route path={`${url}/cast`}>
             <Cast cast={cast} />
           </Route>
-          <Link to={`${url}/reviews`}>Reviews</Link>
-          <hr />
+          <Link to={`${url}/reviews`} className={s.link}>
+            Reviews
+          </Link>
+
           <Route path={`${url}/reviews`}>
             <Review review={review} />
           </Route>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
+};
+
+MovieCard.defaultProps = {
+  movie: [],
+  cast: [],
+  review: [],
 };
 
 export default MovieCard;

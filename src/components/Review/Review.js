@@ -1,5 +1,5 @@
 import Fallback from '../Fallback/Fallback';
-// import s from './Review.module.css';
+import s from './Review.module.css';
 
 const Review = ({ review }) => {
   if (!review.results) {
@@ -11,15 +11,19 @@ const Review = ({ review }) => {
   }
 
   return (
-    <div>
+    <div className={s.container}>
       {review.results.map(el => (
         <div key={el.id}>
-          <p>Author: {el.author}</p>
-          <p>Review: {el.content}</p>
+          <p className={s.author}>Author: {el.author}</p>
+          <p className={s.review}>Review: {el.content}</p>
         </div>
       ))}
     </div>
   );
+};
+
+Review.defaultProps = {
+  review: [],
 };
 
 export default Review;

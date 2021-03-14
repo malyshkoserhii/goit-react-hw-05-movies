@@ -1,3 +1,9 @@
+.backBtnWrapper {
+  margin: 0 auto;
+  width: 85%;
+  padding: 20px 0;
+}
+
 .button {
   width: 60px;
   line-height: 28px;
@@ -12,65 +18,72 @@
   box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.004);
 }
 
-.imageDescriptionWrapper {
-  width: 240px;
+.details {
+  margin: 0 auto;
+  padding-bottom: 22px;
+  width: 85%;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.286;
+  color: var(--details-description-color);
 }
 
-.moviesCardImage {
-  margin-bottom: 14px;
+.imageBlock {
+  display: block;
 }
 
-.movieCardHeader {
-  font-size: var(--mobile-title-font-size);
-  margin-bottom: 18px;
+.title {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-family: var(--details-font);
+  color: var(--details-title-color);
 }
 
-.movieCardTitle {
-  font-weight: bold;
+.infoItem {
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 6%;
 }
 
-.movieCardDescription {
-  margin-bottom: 8px;
-  font-size: var(--mobile-font-size);
-  line-height: 1.2;
+.infoItem:nth-of-type(odd) {
+  background-color: var(--details-blue-block);
 }
 
-.defaultImage {
-  width: 500px;
-  height: 281px;
+.infoName {
+  width: 46%;
+}
+
+.infoValue {
+  width: 54%;
+}
+
+.description {
+  margin-bottom: 40px;
+}
+
+.link {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-family: var(--details-font);
+  color: var(--details-title-color);
 }
 
 @media screen and (min-width: 768px) {
-  .imageDescriptionWrapper {
-    width: 280px;
-  }
-
-  .movieCardDescription {
-    width: 368px;
-  }
-
-  .movieCardDescriptionWrapper {
-    display: flex;
+  .details {
+    flex-wrap: nowrap;
     justify-content: space-between;
   }
 
-  .moviesCardImage {
-    margin-bottom: 0px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .imageDescriptionWrapper {
-    width: 480px;
-    margin-right: 80px;
+  .imageBlock {
+    width: 50%;
   }
 
-  .movieCardDescriptionWrapper {
-    display: flex;
-    justify-content: flex-start;
-  }
-
-  .moviesCardImage {
-    margin-bottom: 0px;
+  .infoBlock {
+    width: 47%;
   }
 }

@@ -1,7 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Fallback from './components/Fallback/Fallback';
-import Container from './components/Container/Container';
 import AppBar from './components/AppBar/AppBar';
 import Footer from './components/Footer/Footer';
 
@@ -30,31 +29,29 @@ const App = () => {
   return (
     <>
       <AppBar />
-      <Container>
-        <Suspense fallback={<Fallback />}>
-          <Switch>
-            <Route exact path="/">
-              <Homepage />
-            </Route>
+      <Suspense fallback={<Fallback />}>
+        <Switch>
+          <Route exact path="/">
+            <Homepage />
+          </Route>
 
-            <Route exact path="/movies">
-              <MoviesPage />
-            </Route>
+          <Route exact path="/movies">
+            <MoviesPage />
+          </Route>
 
-            <Route path="/movies/:movieId">
-              <MovieDetailsView />
-            </Route>
+          <Route path="/movies/:movieId">
+            <MovieDetailsView />
+          </Route>
 
-            <Route path="/:movieId">
-              <MovieDetailsView />
-            </Route>
+          <Route path="/:movieId">
+            <MovieDetailsView />
+          </Route>
 
-            <Route>
-              <NotFoundView />
-            </Route>
-          </Switch>
-        </Suspense>
-      </Container>
+          <Route>
+            <NotFoundView />
+          </Route>
+        </Switch>
+      </Suspense>
       <Footer />
     </>
   );

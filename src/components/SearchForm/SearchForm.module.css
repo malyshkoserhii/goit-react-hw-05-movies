@@ -14,7 +14,7 @@
 
 .searchForm {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin: 0 auto;
   padding-bottom: 20px;
 }
@@ -24,7 +24,7 @@
   margin: 0 auto;
   outline: none;
   border: none;
-  width: 252px;
+  width: 200px;
   background-repeat: no-repeat;
   background-size: 17px;
   font-size: 14px;
@@ -52,6 +52,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .input {
+    width: 252px;
+  }
+
   .searchForm {
     width: 400px;
     padding-bottom: 20px;
