@@ -1,32 +1,50 @@
+.inputWrapper {
+  width: 100%;
+  padding: 20px 0 10px;
+  font-family: 'Roboto', sans-serif;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  background-color: #f3f6f6;
+}
+
+.formWrapper {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
 .searchForm {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin: 0 auto;
   padding-bottom: 20px;
 }
 
 .input {
-  width: 162px;
-  padding: 4px 8px;
-  line-height: 16px;
+  display: block;
   margin: 0 auto;
-  font-size: var(--mobile-font);
   outline: none;
-  border: 1px solid var(--main-color);
-  border-radius: 4px;
+  border: none;
+  width: 200px;
+  background-repeat: no-repeat;
+  background-size: 17px;
+  font-size: 14px;
+  line-height: 26px;
+  letter-spacing: 0.6px;
+  padding-left: 24px;
+  background-color: transparent;
+  background-image: url(../../images/search-icon.svg);
+  border-bottom: 2px solid rgb(0, 0, 0);
 }
 
 .input::placeholder {
-  font-size: var(--mobile-font-size);
-  font-style: italic;
-  color: var(--main-color);
+  color: black;
 }
 
 .searchButton {
   width: 70px;
   font-size: var(--mobile-font-size);
   background-color: var(--main-color);
-  color: rgb(255, 255, 255);
+  color: var(--second-color);
   border: 1px solid var(--main-color);
   border-radius: 4px;
   cursor: pointer;
@@ -34,6 +52,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .input {
+    width: 252px;
+  }
+
   .searchForm {
     width: 400px;
     padding-bottom: 20px;

@@ -1,20 +1,21 @@
 .container {
   margin: 0 auto;
-  padding: 0 20px 40px;
   width: 320px;
+  min-height: 80.6vh;
 }
 
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .container {
     margin: 0 auto;
     width: 768px;
+    min-height: 74.9vh;
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media (min-width: 1024px) {
   .container {
     margin: 0 auto;
-    padding: 0 40px 40px;
-    width: 1360px;
+    width: 1024px;
+    min-height: 79.4vh;
   }
 }

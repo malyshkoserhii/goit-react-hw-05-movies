@@ -1,3 +1,5 @@
-.castWrapper {
-  display: flex;
+.container {
+  display: grid;
+  grid-column: 60px 60px;
+  grid-row: 30px 30px;
 }

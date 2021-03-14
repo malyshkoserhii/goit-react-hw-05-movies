@@ -14,19 +14,23 @@ const SearchForm = ({ onChangeForm }) => {
   };
 
   return (
-    <form className={s.searchForm} onSubmit={onFormSubmit}>
-      <label htmlFor="searchMovie">
-        <input
-          id="searchMovie"
-          className={s.input}
-          placeholder="Enter a movie"
-          onChange={onInputCahnge}
-        />
-      </label>
-      <button type="submit" className={s.searchButton}>
-        Search
-      </button>
-    </form>
+    <div className={s.inputWrapper}>
+      <div className={s.formWrapper}>
+        <form className={s.searchForm} onSubmit={onFormSubmit}>
+          <label htmlFor="searchMovie">
+            <input
+              id="searchMovie"
+              className={s.input}
+              placeholder="Enter a movie"
+              onChange={onInputCahnge}
+            />
+          </label>
+          <button type="submit" className={s.searchButton}>
+            Search
+          </button>
+        </form>
+      </div>
+    </div>
   );
 };
 

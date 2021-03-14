@@ -10,6 +10,18 @@ const Cast = ({ cast }) => {
     return <p>Not found</p>;
   }
 
+  // return (
+  //   <div className={s.container}>
+  //     <div className={s.card}>
+  //       <img src="#" alt="actor or actess photo" />
+  //       <p className={s.name}> </p>
+  //       <p className={s.character}>
+  //         {cast && cast.cast.map(el => el.character)}
+  //       </p>
+  //     </div>
+  //   </div>
+  // );
+
   return (
     <table>
       <thead>
@@ -28,6 +40,10 @@ const Cast = ({ cast }) => {
       ))}
     </table>
   );
+};
+
+Cast.defaultProps = {
+  cast: [],
 };
 
 export default Cast;

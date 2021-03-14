@@ -1,20 +1,78 @@
-.movieListItemImageWrapper {
-  padding-bottom: 10px;
+.image {
+  width: 298px;
+  height: 156px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin: 0 auto;
 }
 
-.movieListItemTitle {
-  color: var(--second-color);
-  font-size: var(--mobile-font-size);
+.title {
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #ffffff;
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  font-family: 'Roboto', 'Arial', sans-serif;
+}
+
+.raiting {
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 500;
+  color: rgb(0, 0, 0);
+  position: absolute;
+  top: 10px;
+  right: 20px;
+
+  font-family: 'Roboto', 'Arial', sans-serif;
+  text-align: center;
+
+  width: 31px;
+  height: 17px;
+  background-color: #fff;
+  border-radius: 6px;
+
+  box-shadow: inset 0px 0px 2.79px 0.21px rgba(0, 0, 0, 0.35),
+    inset 0px 0px 2.64px 1.36px rgba(0, 0, 0, 0.35);
 }
 
 @media screen and (min-width: 768px) {
-  .movieListItemTitle {
-    font-size: var(--laptop-font);
+  .image {
+    width: 344px;
+    height: 182px;
+  }
+
+  .title {
+    font-size: 14px;
+    left: 20px;
+  }
+
+  .raiting {
+    font-size: 15px;
+    border-radius: 10px;
+    width: 37px;
+    height: 20px;
+    right: 10px;
   }
 }
 
-@media screen and (min-width: 1440px) {
-  .movieListItemTitle {
-    font-size: var(--laptop-font);
+@media screen and (min-width: 1024px) {
+  .image {
+    width: 466px;
+    height: 244px;
+  }
+
+  .title {
+    bottom: 21px;
+    left: 14px;
+    font-size: 20px;
+  }
+
+  .raiting {
+    font-size: 20px;
+    width: 49px;
+    height: 27px;
   }
 }

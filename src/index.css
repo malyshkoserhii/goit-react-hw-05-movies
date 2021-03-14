@@ -1,17 +1,29 @@
-html {
-  box-sizing: border-box;
-  width: 100vw;
-  overflow-x: hidden;
-}
-
-*,
-*::before,
-*::after {
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: inherit;
 }
 
+html {
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
 body {
-  margin: 0;
   font-family: 'Roboto', sans-serif;
   color: #212121;
   background-color: #fff;
@@ -20,8 +32,12 @@ body {
 }
 
 :root {
-  --main-color: rgb(138, 43, 226);
-  --second-color: rgb(109, 46, 90);
+  --main-color: rgb(118, 192, 186);
+  --second-color: rgb(55, 44, 72);
+  --details-description-color: rgba(0, 0, 0, 0.541);
+  --details-blue-block: rgb(173, 218, 214);
+  --details-title-color: rgb(55, 44, 72);
+  --details-font: 'Roboto', sans-serif;
   --mobile-font-size: 14px;
   --mobile-nav-font-size: 14px;
   --mobile-title-font-size: 20px;
@@ -48,4 +64,15 @@ a {
 
 h2 {
   margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }

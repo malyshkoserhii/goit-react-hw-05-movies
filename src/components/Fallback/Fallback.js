@@ -6,7 +6,7 @@ const Fallback = () => {
     <div className={s.loaderWrapper}>
       <Loader
         type="TailSpin"
-        color="#00BFFF"
+        color="#76c0ba"
         height={60}
         width={60}
         timeout={3000}
